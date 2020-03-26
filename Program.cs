@@ -29,7 +29,7 @@ namespace Covid
         }
 
         static int GetPositiveCount(string html){
-            var match = Regex.Match(html,"<li><strong>Positive:</strong> (.*)</li>");
+            var match = Regex.Match(html,"<li><strong>Total positive:</strong> (.*)");
             if(!match.Success || match.Groups.Count != 2)
                 return 0;
 
