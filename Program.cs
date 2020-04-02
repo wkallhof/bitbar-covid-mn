@@ -37,7 +37,7 @@ namespace Covid
         }
 
         static int GetDeathCount(string html){
-            var match = Regex.Match(html,"<li><strong>Deaths:</strong> (.*)</li>");
+            var match = Regex.Match(html,"<li>Deaths: (.*)</li>");
             if(!match.Success || match.Groups.Count != 2)
                 return 0;
 
@@ -45,7 +45,7 @@ namespace Covid
         }
 
         static string GetLastUpdated(string html){
-            var match = Regex.Match(html,"<p class=\"small\">Updated (.*)</p>");
+            var match = Regex.Match(html,"<p class=\"small\">Updated (.*) <br>");
             if(!match.Success || match.Groups.Count != 2)
                 return "N/A";
 
