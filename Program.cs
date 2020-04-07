@@ -29,15 +29,15 @@ namespace Covid
         }
 
         static int GetPositiveCount(string html){
-            var match = Regex.Match(html,"<li><strong>Total positive:</strong> (.*)");
+            var match = Regex.Match(html,"<strong>Total positive: </strong>(.*)");
             if(!match.Success || match.Groups.Count != 2)
                 return 0;
 
-            return int.Parse(match.Groups[1].Value);
+            return int.Parse(match.Groups[1].Value.Replace(",",""));
         }
 
         static int GetDeathCount(string html){
-            var match = Regex.Match(html,"<li>Deaths: (.*)</li>");
+            var match = Regex.Match(html,"<strong>Total deaths:</strong> (.*)</li>");
             if(!match.Success || match.Groups.Count != 2)
                 return 0;
 
