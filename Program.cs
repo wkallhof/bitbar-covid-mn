@@ -29,7 +29,7 @@ namespace Covid
         }
 
         static int GetPositiveCount(string html){
-            var match = Regex.Match(html,"<strong>Total positive: </strong>(.*)</p>");
+            var match = Regex.Match(html,"<strong>Total positive: </strong>(.*)");
             if(!match.Success || match.Groups.Count != 2)
                 return 0;
 
@@ -37,7 +37,7 @@ namespace Covid
         }
 
         static int GetDeathCount(string html){
-            var match = Regex.Match(html,"<strong>Deaths:</strong> (.*)</li>");
+            var match = Regex.Match(html,"<strong>Deaths: </strong>(.*)");
             if(!match.Success || match.Groups.Count != 2)
                 return 0;
 
@@ -45,7 +45,7 @@ namespace Covid
         }
 
         static string GetLastUpdated(string html){
-            var match = Regex.Match(html,"<strong>Updated (.*) </strong>");
+            var match = Regex.Match(html,"Updated (.*)</strong>");
             if(!match.Success || match.Groups.Count != 2)
                 return "N/A";
 
